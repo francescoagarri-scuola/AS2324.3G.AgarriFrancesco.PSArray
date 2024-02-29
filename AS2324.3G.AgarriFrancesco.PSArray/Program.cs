@@ -17,6 +17,10 @@ namespace AS2324._3G.AgarriFrancesco.PSArray
             Console.WriteLine("Primi voti caricati:");
             StampaVotiPesi(voti, pesi, nVoti);
 
+            Console.WriteLine("questi voti sono in posizione dispari e maggiori di 4:");
+            StampaVotiDispariMaggiori4(ref voti, ref pesi, nVoti);
+
+
             Console.ReadLine();
         }
 
@@ -38,6 +42,17 @@ namespace AS2324._3G.AgarriFrancesco.PSArray
             {
                 voti[i] = random.Next(1, 11);
                 pesi[i] = random.Next(0, 101);
+            }
+        }
+
+        static void StampaVotiDispariMaggiori4(ref double[] voti, ref int[] pesi, int nVoti)
+        {
+            for (int i = 0; i < nVoti; i++)
+            {
+                if (voti[i] > 4 && (i % 2 == 0 || i == 0))
+                {
+                    Console.Write(voti[i] + "\t");
+                }
             }
         }
 
