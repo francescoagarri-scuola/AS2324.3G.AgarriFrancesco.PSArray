@@ -33,6 +33,11 @@ namespace AS2324._3G.AgarriFrancesco.PSArray
             Console.WriteLine("questi sono i voti dopo la media:");
             StampaVotiPesi(voti, pesi, nVoti);
 
+            BubbleSort(voti, pesi, nVoti);
+
+            Console.WriteLine("voti e pesi in ordine:");
+            StampaVotiPesi(voti, pesi, nVoti);
+
             Console.ReadLine();
         }
 
@@ -105,6 +110,35 @@ namespace AS2324._3G.AgarriFrancesco.PSArray
             return mediaPonderata;
         }
 
+        static void ElencoVotiNellIntorno(double[] voti, int[] pesi, int nVoti, int voto)
+        {
+            for (int i = 0; i < nVoti; i++)
+            {
+                if ()
+            }
+        }
 
+        static void BubbleSort(double[] voti, int[] pesi, int nVoti)
+        {
+            int temp = 0;
+
+            for (int j = 0; j < (nVoti - 1); j++)
+                for (int i = 0; i < (nVoti - 1); i++)
+                    if (voti[i] > voti[i + 1])
+                    {
+                        temp = voti[i];
+                        voti[i] = voti[i + 1];
+                        voti[i + 1] = temp;
+                    }
+
+            for (int j = 0; j < (nVoti - 1); j++)
+                for (int i = 0; i < (nVoti - 1); i++)
+                    if (pesi[i] > pesi[i + 1])
+                    {
+                        temp = pesi[i];
+                        pesi[i] = pesi[i + 1];
+                        pesi[i + 1] = temp;
+                    }
+        }
     }
 }
