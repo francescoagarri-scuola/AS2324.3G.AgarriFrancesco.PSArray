@@ -12,6 +12,12 @@ namespace AS2324._3G.AgarriFrancesco.PSArray
             double[] voti = new double[nVoti];
             int[] pesi = new int[nVoti];
 
+            CaricaVettori(ref voti, ref pesi, nVoti);
+
+            Console.WriteLine("Primi voti caricati:");
+            StampaVotiPesi(voti, pesi, nVoti);
+
+            Console.ReadLine();
         }
 
         static void StampaVotiPesi(double[] voti, int[] pesi, int nVoti)
@@ -21,6 +27,17 @@ namespace AS2324._3G.AgarriFrancesco.PSArray
             for (int i = 0; i < nVoti; i++)
             {
                 Console.Write(voti[i] + "\t" + pesi[i] + "\n");
+            }
+        }
+
+        static void CaricaVettori(ref double[] voti, ref int[] pesi, int nVoti)
+        {
+            Random random = new Random();
+
+            for (int i = 0;i < nVoti; i++)
+            {
+                voti[i] = random.Next(1, 11);
+                pesi[i] = random.Next(0, 101);
             }
         }
 
