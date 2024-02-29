@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Schema;
 
 namespace AS2324._3G.AgarriFrancesco.PSArray
 {
@@ -20,6 +21,17 @@ namespace AS2324._3G.AgarriFrancesco.PSArray
             Console.WriteLine("questi voti sono in posizione dispari e maggiori di 4:");
             StampaVotiDispariMaggiori4(ref voti, ref pesi, nVoti);
 
+            double max = 0;
+            double min = 100;
+
+            int posmax = 0;
+            int posmin = 0;
+
+            double mediaPonderata = MediaPonderata(voti, pesi, nVoti, ref max, ref posmax, ref min, ref posmin);
+            Console.WriteLine($"questa e' la media ponderata: {mediaPonderata}");
+
+            Console.WriteLine("questi sono i voti dopo la media:");
+            StampaVotiPesi(voti, pesi, nVoti);
 
             Console.ReadLine();
         }
@@ -55,6 +67,44 @@ namespace AS2324._3G.AgarriFrancesco.PSArray
                 }
             }
         }
+
+        static double MediaPonderata(double[] voti, int[] pesi, int nVoti, ref double max, ref int posmax, ref double min, ref int posmin)
+        {
+            double sommaVotiPesi = 0;
+            int sommaPesi = 0;
+
+            for (int i = 0; i < nVoti; i++)
+            {
+                sommaVotiPesi = voti[i] + pesi[i];
+                sommaPesi += pesi[i];
+            }
+
+            double mediaPonderata = sommaVotiPesi / sommaPesi;
+
+            max = 0;
+            min = 100;
+
+            posmax = 0;
+            posmin = 0;
+
+
+            for (int i = 0; i < nVoti; i++)
+            {
+                if (voti[i] > max)
+                {
+                    max = voti[i];
+                    posmax = i + 1;
+                }
+                if (voti[i] < min)
+                {
+                    min = voti[i];
+                    posmin = i + 1;
+                }
+            }
+
+            return mediaPonderata;
+        }
+
 
     }
 }
